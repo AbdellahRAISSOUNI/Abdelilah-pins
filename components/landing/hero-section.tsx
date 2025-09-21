@@ -4,7 +4,7 @@ import { ArrowRight, Play, Sparkles, Users, Clock, TrendingUp } from "lucide-rea
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32 lg:py-40">
+    <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient Background */}
