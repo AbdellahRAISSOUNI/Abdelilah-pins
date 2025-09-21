@@ -350,14 +350,14 @@ export default function MyPostsPage() {
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <input
-              type="text"
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <input
+                type="text"
               placeholder="Search posts by title or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
           </div>
 
           {/* Status Filter */}
@@ -385,19 +385,19 @@ export default function MyPostsPage() {
           </select>
 
           {/* View Mode */}
-          <div className="flex border border-gray-300 rounded-lg">
-            <button
-              onClick={() => setViewMode("grid")}
-              className={`p-2 ${viewMode === "grid" ? "bg-primary text-white" : "text-gray-500 hover:text-gray-700"}`}
-            >
-              <Grid3X3 className="h-4 w-4" />
-            </button>
-            <button
-              onClick={() => setViewMode("list")}
-              className={`p-2 ${viewMode === "list" ? "bg-primary text-white" : "text-gray-500 hover:text-gray-700"}`}
-            >
-              <List className="h-4 w-4" />
-            </button>
+            <div className="flex border border-gray-300 rounded-lg">
+              <button
+                onClick={() => setViewMode("grid")}
+                className={`p-2 ${viewMode === "grid" ? "bg-primary text-white" : "text-gray-500 hover:text-gray-700"}`}
+              >
+                <Grid3X3 className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => setViewMode("list")}
+                className={`p-2 ${viewMode === "list" ? "bg-primary text-white" : "text-gray-500 hover:text-gray-700"}`}
+              >
+                <List className="h-4 w-4" />
+              </button>
           </div>
         </div>
 
@@ -485,17 +485,17 @@ export default function MyPostsPage() {
                 <div key={post.id} className="group relative border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
                   {/* Selection Checkbox */}
                   <div className="absolute top-3 left-3 z-10">
-                    <button
-                      onClick={() => togglePostSelection(post.id)}
+                      <button
+                        onClick={() => togglePostSelection(post.id)}
                       className="p-1 bg-white/90 backdrop-blur-sm rounded-full shadow-sm hover:bg-white transition-colors"
-                    >
-                      {selectedPosts.includes(post.id) ? (
-                        <CheckSquare className="h-4 w-4 text-primary" />
-                      ) : (
-                        <Square className="h-4 w-4 text-gray-400" />
-                      )}
-                    </button>
-                  </div>
+                      >
+                        {selectedPosts.includes(post.id) ? (
+                          <CheckSquare className="h-4 w-4 text-primary" />
+                        ) : (
+                          <Square className="h-4 w-4 text-gray-400" />
+                        )}
+                      </button>
+                    </div>
 
                   {/* Status Badge */}
                   <div className="absolute top-3 right-3 z-10">
@@ -548,20 +548,20 @@ export default function MyPostsPage() {
                     
                     {/* Stats */}
                     {post.status !== 'draft' && (
-                      <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                        <span className="flex items-center">
-                          <Eye className="h-3 w-3 mr-1" />
-                          {post.views.toLocaleString()}
-                        </span>
-                        <span className="flex items-center">
-                          <Heart className="h-3 w-3 mr-1" />
-                          {post.saves}
-                        </span>
-                        <span className="flex items-center">
-                          <Share2 className="h-3 w-3 mr-1" />
-                          {post.shares}
-                        </span>
-                      </div>
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                      <span className="flex items-center">
+                        <Eye className="h-3 w-3 mr-1" />
+                        {post.views.toLocaleString()}
+                      </span>
+                      <span className="flex items-center">
+                        <Heart className="h-3 w-3 mr-1" />
+                        {post.saves}
+                      </span>
+                      <span className="flex items-center">
+                        <Share2 className="h-3 w-3 mr-1" />
+                        {post.shares}
+                      </span>
+                    </div>
                     )}
 
                     {/* Actions */}
@@ -718,11 +718,11 @@ export default function MyPostsPage() {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-700">
+      <div className="flex items-center justify-between">
+        <div className="text-sm text-gray-700">
               Showing {startIndex + 1} to {Math.min(endIndex, filteredAndSortedPosts.length)} of {filteredAndSortedPosts.length} posts
-            </div>
-            <div className="flex items-center space-x-2">
+        </div>
+        <div className="flex items-center space-x-2">
               <Button
                 variant="outline"
                 size="sm"
@@ -730,8 +730,8 @@ export default function MyPostsPage() {
                 disabled={currentPage === 1}
               >
                 <ChevronLeft className="h-4 w-4" />
-                Previous
-              </Button>
+            Previous
+          </Button>
               
               {/* Page Numbers */}
               <div className="flex items-center space-x-1">
@@ -748,7 +748,7 @@ export default function MyPostsPage() {
                       className="w-8 h-8 p-0"
                     >
                       {pageNumber}
-                    </Button>
+          </Button>
                   );
                 })}
               </div>
@@ -761,9 +761,9 @@ export default function MyPostsPage() {
               >
                 Next
                 <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+          </Button>
+        </div>
+      </div>
         </div>
       )}
 

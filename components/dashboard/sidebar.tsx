@@ -9,7 +9,10 @@ import {
   Calendar, 
   BarChart3, 
   Settings,
-  X
+  X,
+  Crown,
+  TrendingUp,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -95,20 +98,48 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             })}
           </nav>
 
-          {/* Footer */}
+          {/* Modern Upgrade Plan Footer */}
           <div className="p-4 border-t border-gray-200">
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-4">
-              <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-                  <Zap className="h-5 w-5" />
+            <div className="bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-xl p-4 border border-primary/20">
+              {/* Plan Info */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center space-x-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-primary/80 text-white">
+                    <Crown className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900">Free Plan</p>
+                    <p className="text-xs text-gray-600">Monthly credits</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-medium text-gray-900">Upgrade Plan</p>
-                  <p className="text-xs text-gray-600">Get more features</p>
+                <div className="flex items-center space-x-1 bg-primary/10 rounded-full px-2 py-1">
+                  <Sparkles className="h-3 w-3 text-primary" />
+                  <span className="text-xs font-medium text-primary">Upgrade</span>
                 </div>
               </div>
-              <Button size="sm" className="w-full mt-3">
-                Upgrade Now
+
+              {/* Credit Usage */}
+              <div className="mb-3">
+                <div className="flex items-center justify-between text-xs mb-2">
+                  <span className="text-gray-600">Credits used</span>
+                  <span className="font-medium text-gray-900">1,247 / 2,000</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-300" 
+                    style={{ width: '62.35%' }}
+                  ></div>
+                </div>
+                <div className="flex items-center justify-between mt-1">
+                  <span className="text-xs text-gray-500">62% used</span>
+                  <span className="text-xs text-green-600 font-medium">753 remaining</span>
+                </div>
+              </div>
+
+              {/* Upgrade Button */}
+              <Button size="sm" className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-sm">
+                <TrendingUp className="h-3 w-3 mr-2" />
+                Upgrade Plan
               </Button>
             </div>
           </div>

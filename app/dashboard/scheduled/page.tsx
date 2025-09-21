@@ -5,8 +5,8 @@ import { useState, useMemo } from "react";
 import { 
   Calendar, 
   Clock, 
-  Plus, 
-  Filter, 
+  Plus,
+  Filter,
   Search,
   MoreHorizontal,
   Edit,
@@ -316,9 +316,9 @@ export default function ScheduledPostsPage() {
             Export Calendar
           </Button>
           <Button onClick={handleSchedulePost}>
-            <Plus className="h-4 w-4 mr-2" />
+          <Plus className="h-4 w-4 mr-2" />
             Schedule Post
-          </Button>
+        </Button>
         </div>
       </div>
 
@@ -353,7 +353,7 @@ export default function ScheduledPostsPage() {
               <Target className="h-4 w-4 mr-2 inline" />
               Queue
             </button>
-          </div>
+      </div>
 
           <div className="flex items-center space-x-2">
             <Button variant="outline" size="sm">
@@ -391,8 +391,8 @@ export default function ScheduledPostsPage() {
               <Button variant="outline" size="sm">
                 <BarChart3 className="h-4 w-4 mr-2" />
                 Analyze Conflicts
-              </Button>
-            </div>
+            </Button>
+          </div>
           </div>
         )}
       </div>
@@ -415,8 +415,8 @@ export default function ScheduledPostsPage() {
               <Button variant="outline" size="sm" onClick={() => setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 1))}>
                 <ChevronRight className="h-4 w-4" />
               </Button>
-            </div>
           </div>
+        </div>
 
           {/* Calendar Grid */}
           <div className="grid grid-cols-7 gap-1 mb-4">
@@ -494,7 +494,7 @@ export default function ScheduledPostsPage() {
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">{post.title}</h4>
                       <p className="text-sm text-gray-500">{post.category} • {formatTime(post.scheduledDate)}</p>
-                    </div>
+          </div>
                     <div className="flex items-center space-x-2">
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(post.status)}`}>
                         {post.status}
@@ -502,13 +502,13 @@ export default function ScheduledPostsPage() {
                       <Button variant="outline" size="sm" onClick={() => handleReschedulePost(post)}>
                         <Edit className="h-4 w-4" />
                       </Button>
-                    </div>
-                  </div>
+          </div>
+          </div>
                 ))}
-              </div>
-            </div>
-          )}
+          </div>
         </div>
+          )}
+      </div>
       )}
 
       {viewMode === "timeline" && (
@@ -521,8 +521,8 @@ export default function ScheduledPostsPage() {
                 <Globe className="h-4 w-4 mr-2" />
                 EST Timezone
               </Button>
-            </div>
-          </div>
+        </div>
+      </div>
 
           <div className="space-y-4">
             {upcomingPosts.map((post) => (
@@ -530,11 +530,11 @@ export default function ScheduledPostsPage() {
                 <div className="flex flex-col items-center">
                   <div className="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                  </div>
+                      </div>
                   {post.optimalTime && (
                     <div className="mt-1 w-2 h-2 bg-green-500 rounded-full" title="Optimal posting time"></div>
                   )}
-                </div>
+                      </div>
                 
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-1">
@@ -542,7 +542,7 @@ export default function ScheduledPostsPage() {
                     {post.conflicts && (
                       <AlertCircle className="h-4 w-4 text-red-500" title={post.conflicts.join(', ')} />
                     )}
-                  </div>
+                    </div>
                   <p className="text-sm text-gray-600 mb-2">{post.description}</p>
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <span>{post.category}</span>
@@ -553,24 +553,24 @@ export default function ScheduledPostsPage() {
                       <BarChart3 className="h-3 w-3 mr-1" />
                       {post.performance}% predicted performance
                     </span>
-                  </div>
-                </div>
+                        </div>
+                      </div>
                 
                 <div className="text-right">
                   <div className="text-sm font-medium text-gray-900">{formatTime(post.scheduledDate)}</div>
                   <div className="text-xs text-gray-500">{formatDate(post.scheduledDate)}</div>
-                </div>
+                    </div>
                 
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(post.status)}`}>
-                    {post.status}
-                  </span>
+                      {post.status}
+                    </span>
                   <Button variant="outline" size="sm" onClick={() => handleReschedulePost(post)}>
                     <Edit className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="sm">
+                        </Button>
+                        <Button variant="outline" size="sm">
                     <MoreHorizontal className="h-4 w-4" />
-                  </Button>
+                        </Button>
                 </div>
               </div>
             ))}
@@ -583,11 +583,11 @@ export default function ScheduledPostsPage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-semibold">Queue Management</h2>
             <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm">
+                      <Button variant="outline" size="sm">
                 <Zap className="h-4 w-4 mr-2" />
                 Auto-Optimize
-              </Button>
-              <Button variant="outline" size="sm">
+                      </Button>
+                      <Button variant="outline" size="sm">
                 <BarChart3 className="h-4 w-4 mr-2" />
                 Analyze Queue
               </Button>
@@ -679,14 +679,14 @@ export default function ScheduledPostsPage() {
                 <div className="flex items-center space-x-2">
                   <Button variant="outline" size="sm">
                     <ArrowUp className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="sm">
+                      </Button>
+                      <Button variant="outline" size="sm">
                     <ArrowDown className="h-4 w-4" />
                   </Button>
                   <Button variant="outline" size="sm" onClick={() => handleReschedulePost(post)}>
                     <Edit className="h-4 w-4" />
-                  </Button>
-                </div>
+                      </Button>
+                    </div>
               </div>
             ))}
           </div>
@@ -751,8 +751,8 @@ export default function ScheduledPostsPage() {
                       defaultValue={formatTime(selectedPostForScheduling.scheduledDate).replace(' AM', '').replace(' PM', '')}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
-                  </div>
-                </div>
+        </div>
+      </div>
 
                 {/* Optimal Times */}
                 <div>
@@ -771,7 +771,7 @@ export default function ScheduledPostsPage() {
                         <div>
                           <div className="text-sm font-medium">{time.time}</div>
                           <div className="text-xs text-gray-500">{time.label}</div>
-                        </div>
+            </div>
                         <div className="text-sm font-medium text-green-600">{time.score}%</div>
                       </button>
                     ))}
@@ -810,21 +810,21 @@ export default function ScheduledPostsPage() {
                       className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${selectedPostForScheduling.performance}%` }}
                     ></div>
-                  </div>
-                </div>
               </div>
+        </div>
+      </div>
 
               {/* Action Buttons */}
               <div className="flex items-center justify-end space-x-3 mt-6 pt-6 border-t border-gray-200">
                 <Button variant="outline" onClick={() => setShowScheduleModal(false)}>
                   Cancel
-                </Button>
+          </Button>
                 <Button onClick={() => handleSaveScheduledPost(selectedPostForScheduling)}>
                   <Calendar className="h-4 w-4 mr-2" />
                   Schedule Post
-                </Button>
-              </div>
-            </div>
+          </Button>
+        </div>
+      </div>
           </div>
         </div>
       )}

@@ -10,13 +10,13 @@ import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 // import { Separator } from "@/components/ui/separator";
-import {
-  User,
-  Bell,
+import { 
+  User, 
+  Bell, 
   Pin,
   Image as ImageIcon,
   Calendar,
-  CreditCard,
+  CreditCard, 
   Settings as SettingsIcon,
   Trash2,
   CheckCircle,
@@ -150,32 +150,32 @@ export default function SettingsPage() {
                 <Upload className="h-3 w-3" />
               </Button>
             </div>
-            <div>
+      <div>
               <h3 className="text-lg font-medium">{userProfile.name}</h3>
               <p className="text-gray-500">{userProfile.email}</p>
               <Badge variant="secondary" className="mt-1">{userProfile.plan} Plan</Badge>
-            </div>
-          </div>
-          
+      </div>
+        </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="name">Full Name</Label>
               <Input id="name" defaultValue={userProfile.name} />
-            </div>
-            <div>
+                    </div>
+                    <div>
               <Label htmlFor="email">Email Address</Label>
               <Input id="email" type="email" defaultValue={userProfile.email} />
-            </div>
-          </div>
-          
-          <div>
+                    </div>
+                  </div>
+
+                    <div>
             <Label htmlFor="bio">Bio</Label>
             <Textarea 
               id="bio" 
               placeholder="Tell us about yourself..."
               defaultValue="Pinterest marketing specialist helping businesses grow their online presence."
-            />
-          </div>
+                      />
+                    </div>
         </CardContent>
       </Card>
 
@@ -186,9 +186,9 @@ export default function SettingsPage() {
           <CardDescription>Update your password and security settings</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div>
+                    <div>
             <Label htmlFor="current-password">Current Password</Label>
-            <div className="relative">
+                      <div className="relative">
               <Input 
                 id="current-password" 
                 type={showPassword ? "text" : "password"}
@@ -203,20 +203,20 @@ export default function SettingsPage() {
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </Button>
-            </div>
-          </div>
+                      </div>
+                    </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
+                    <div>
               <Label htmlFor="new-password">New Password</Label>
               <Input id="new-password" type="password" placeholder="Enter new password" />
-            </div>
+                      </div>
             <div>
               <Label htmlFor="confirm-password">Confirm Password</Label>
               <Input id="confirm-password" type="password" placeholder="Confirm new password" />
-            </div>
-          </div>
-          
+                    </div>
+                  </div>
+
           <div className="flex items-center space-x-2">
             <Switch id="2fa" />
             <Label htmlFor="2fa">Enable Two-Factor Authentication</Label>
@@ -239,7 +239,7 @@ export default function SettingsPage() {
             <Button variant="outline">
               <Download className="h-4 w-4 mr-2" />
               Export Data
-            </Button>
+                    </Button>
           </div>
         </CardContent>
       </Card>
@@ -282,8 +282,8 @@ export default function SettingsPage() {
                 <Button variant="outline" size="sm">
                   <Edit className="h-4 w-4" />
                 </Button>
-              </div>
-            </div>
+                        </div>
+                      </div>
           ))}
           
           <Button className="w-full">
@@ -301,7 +301,7 @@ export default function SettingsPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
+                      <div>
               <Label htmlFor="default-board">Default Board</Label>
               <Select defaultValue="marketing-tips">
                 <SelectTrigger>
@@ -314,8 +314,8 @@ export default function SettingsPage() {
                   <SelectItem value="content-ideas">Content Ideas</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-            <div>
+                      </div>
+                      <div>
               <Label htmlFor="auto-board">Auto Board Selection</Label>
               <Select defaultValue="enabled">
                 <SelectTrigger>
@@ -326,8 +326,8 @@ export default function SettingsPage() {
                   <SelectItem value="disabled">Disabled</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-          </div>
+                    </div>
+                  </div>
         </CardContent>
       </Card>
     </div>
@@ -343,7 +343,7 @@ export default function SettingsPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
+                      <div>
               <Label htmlFor="image-style">Default Image Style</Label>
               <Select defaultValue="modern">
                 <SelectTrigger>
@@ -356,7 +356,7 @@ export default function SettingsPage() {
                   <SelectItem value="bold">Bold</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
+                      </div>
             <div>
               <Label htmlFor="image-size">Default Image Size</Label>
               <Select defaultValue="1000x1500">
@@ -369,9 +369,9 @@ export default function SettingsPage() {
                   <SelectItem value="1200x628">1200x628 (Landscape)</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-          </div>
-          
+                    </div>
+                  </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="content-tone">Content Tone</Label>
@@ -386,8 +386,8 @@ export default function SettingsPage() {
                   <SelectItem value="authoritative">Authoritative</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-            <div>
+                          </div>
+                          <div>
               <Label htmlFor="language">Default Language</Label>
               <Select defaultValue="en">
                 <SelectTrigger>
@@ -400,8 +400,8 @@ export default function SettingsPage() {
                   <SelectItem value="de">German</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-          </div>
+                          </div>
+                        </div>
         </CardContent>
       </Card>
 
@@ -459,7 +459,7 @@ export default function SettingsPage() {
                   <SelectItem value="mst">Mountain Time (MST)</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
+                      </div>
             <div>
               <Label htmlFor="frequency">Posting Frequency</Label>
               <Select defaultValue="daily">
@@ -473,8 +473,8 @@ export default function SettingsPage() {
                   <SelectItem value="custom">Custom</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-          </div>
+                    </div>
+                  </div>
           
           <div>
             <Label>Preferred Posting Times</Label>
@@ -485,8 +485,8 @@ export default function SettingsPage() {
                   <Label htmlFor={time} className="text-sm">{time}</Label>
                 </div>
               ))}
-            </div>
-          </div>
+                </div>
+              </div>
         </CardContent>
       </Card>
 
@@ -497,24 +497,24 @@ export default function SettingsPage() {
           <CardDescription>Configure automatic scheduling behavior</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
+                    <div className="flex items-center justify-between">
+                      <div>
               <Label htmlFor="auto-schedule">Enable Auto-scheduling</Label>
               <p className="text-sm text-gray-500">Automatically schedule posts at optimal times</p>
-            </div>
+                      </div>
             <Switch id="auto-schedule" defaultChecked />
-          </div>
+                    </div>
           
-          <div className="flex items-center justify-between">
-            <div>
+                    <div className="flex items-center justify-between">
+                      <div>
               <Label htmlFor="weekend-posting">Weekend Posting</Label>
               <p className="text-sm text-gray-500">Allow posts on weekends</p>
-            </div>
+                      </div>
             <Switch id="weekend-posting" />
-          </div>
+                    </div>
           
-          <div className="flex items-center justify-between">
-            <div>
+                    <div className="flex items-center justify-between">
+                      <div>
               <Label htmlFor="holiday-posting">Holiday Posting</Label>
               <p className="text-sm text-gray-500">Allow posts during holidays</p>
             </div>
@@ -608,9 +608,9 @@ export default function SettingsPage() {
                   className="bg-primary h-2 rounded-full" 
                   style={{ width: `${(userProfile.usage.scheduled / userProfile.usage.scheduledLimit) * 100}%` }}
                 ></div>
-              </div>
-            </div>
-          </div>
+                      </div>
+                    </div>
+                  </div>
         </CardContent>
       </Card>
 
@@ -737,11 +737,11 @@ export default function SettingsPage() {
                 <SelectItem value="forever">Forever</SelectItem>
               </SelectContent>
             </Select>
-          </div>
+                  </div>
           <div className="flex items-center justify-between">
             <Label htmlFor="auto-delete">Auto-delete Old Data</Label>
             <Switch id="auto-delete" />
-          </div>
+                </div>
         </CardContent>
       </Card>
 
@@ -821,7 +821,7 @@ export default function SettingsPage() {
       {/* Tab Content */}
       <div>
         {renderTabContent()}
-      </div>
+        </div>
 
       {/* Save Changes Button */}
       <div className="flex justify-end">

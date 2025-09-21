@@ -19,8 +19,8 @@ import {
   Area,
   AreaChart
 } from "recharts";
-import {
-  Heart,
+import { 
+  Heart, 
   Download,
   Calendar,
   Target,
@@ -362,7 +362,7 @@ export default function AnalyticsPage() {
               </CardTitle>
               <div className="text-gray-400">
                 {metric.icon}
-              </div>
+                </div>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-gray-900">{metric.value}</div>
@@ -378,7 +378,7 @@ export default function AnalyticsPage() {
                   {Math.abs(metric.change)}%
                 </span>
                 <span className="text-sm text-gray-500">vs last period</span>
-              </div>
+                </div>
               <p className="text-xs text-gray-500 mt-1">{metric.description}</p>
             </CardContent>
           </Card>
@@ -425,7 +425,7 @@ export default function AnalyticsPage() {
             </ResponsiveContainer>
           </CardContent>
         </Card>
-      </div>
+        </div>
 
       {/* Content Type Performance and Top Posts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -470,7 +470,7 @@ export default function AnalyticsPage() {
                 <div key={post.id} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
                   <div className="h-12 w-12 bg-gray-200 rounded-lg overflow-hidden">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                  </div>
+          </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-sm font-medium text-gray-900 truncate">{post.title}</h4>
                     <div className="flex items-center space-x-2 mt-1">
@@ -478,15 +478,15 @@ export default function AnalyticsPage() {
                       <Badge className={`text-xs ${getPerformanceColor(post.performance)}`}>
                         {post.performance}
                       </Badge>
-                    </div>
                   </div>
+                </div>
                   <div className="text-right">
                     <div className="text-sm font-medium text-gray-900">{post.engagement}%</div>
                     <div className="text-xs text-gray-500">{post.saves} saves</div>
                   </div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
           </CardContent>
         </Card>
       </div>
@@ -507,7 +507,7 @@ export default function AnalyticsPage() {
                 <div className="flex items-start space-x-3">
                   <div className="flex-shrink-0 mt-0.5">
                     {insight.icon}
-                  </div>
+            </div>
                   <div className="flex-1">
                     <h4 className="text-sm font-medium mb-1">{insight.title}</h4>
                     <p className="text-sm mb-2">{insight.description}</p>
@@ -516,9 +516,9 @@ export default function AnalyticsPage() {
                         {insight.action}
                       </Button>
                     )}
-                  </div>
-                </div>
-              </div>
+          </div>
+        </div>
+      </div>
             ))}
           </div>
         </CardContent>
@@ -559,10 +559,10 @@ export default function AnalyticsPage() {
                       </div>
                     );
                   })}
-                </div>
-              ))}
-            </div>
           </div>
+              ))}
+          </div>
+        </div>
         </CardContent>
       </Card>
 
@@ -590,7 +590,7 @@ export default function AnalyticsPage() {
               <Settings className="h-6 w-6" />
               <span className="text-sm">Schedule Reports</span>
             </Button>
-          </div>
+      </div>
         </CardContent>
       </Card>
     </div>

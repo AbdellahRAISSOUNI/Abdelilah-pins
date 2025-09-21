@@ -240,7 +240,7 @@ export default function GeneratePostsPage() {
 
   // Reset process
   const resetProcess = () => {
-    setIsGenerating(false);
+      setIsGenerating(false);
     setShowResults(false);
     setGeneratedPosts([]);
     // setCurrentStep(0);
@@ -291,9 +291,9 @@ export default function GeneratePostsPage() {
       </div>
 
       {!showResults ? (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Input Section */}
-          <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-6">
             {/* URL Input */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
               <div className="text-center mb-6">
@@ -305,8 +305,8 @@ export default function GeneratePostsPage() {
                   Provide your website&apos;s sitemap URL to automatically discover and process blog posts
                 </p>
               </div>
-              
-              <div className="space-y-4">
+            
+            <div className="space-y-4">
                 <div className="relative">
                   <LinkIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                   <input
@@ -316,8 +316,8 @@ export default function GeneratePostsPage() {
                     placeholder="https://yourblog.com/sitemap.xml"
                     className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   />
-                </div>
-                
+              </div>
+
                 {/* Sample URLs */}
                 <div className="space-y-2">
                   <p className="text-sm text-gray-500">Try these sample URLs:</p>
@@ -331,7 +331,7 @@ export default function GeneratePostsPage() {
                         {url}
                       </button>
                     ))}
-                  </div>
+                </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
@@ -371,29 +371,29 @@ export default function GeneratePostsPage() {
                       </>
                     )}
                   </Button>
-                </div>
               </div>
             </div>
+          </div>
 
-            {/* Advanced Options */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-              <button
-                onClick={() => setShowAdvanced(!showAdvanced)}
+          {/* Advanced Options */}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+            <button
+              onClick={() => setShowAdvanced(!showAdvanced)}
                 className="w-full p-6 flex items-center justify-between hover:bg-gray-50 transition-colors rounded-lg"
-              >
-                <div className="flex items-center space-x-3">
+            >
+              <div className="flex items-center space-x-3">
                   <Sliders className="h-5 w-5 text-gray-400" />
-                  <h2 className="text-lg font-semibold text-gray-900">Advanced Options</h2>
-                </div>
-                {showAdvanced ? (
-                  <ChevronUp className="h-5 w-5 text-gray-400" />
-                ) : (
-                  <ChevronDown className="h-5 w-5 text-gray-400" />
-                )}
-              </button>
+                <h2 className="text-lg font-semibold text-gray-900">Advanced Options</h2>
+              </div>
+              {showAdvanced ? (
+                <ChevronUp className="h-5 w-5 text-gray-400" />
+              ) : (
+                <ChevronDown className="h-5 w-5 text-gray-400" />
+              )}
+            </button>
 
-              {showAdvanced && (
-                <div className="px-6 pb-6 border-t border-gray-200">
+            {showAdvanced && (
+              <div className="px-6 pb-6 border-t border-gray-200">
                   <div className="space-y-6 pt-6">
                     {/* Post Count */}
                     <div>
@@ -477,13 +477,13 @@ export default function GeneratePostsPage() {
                   </div>
                 </div>
               )}
-            </div>
           </div>
+        </div>
 
           {/* Progress Panel */}
-          <div className="space-y-6">
-            {isGenerating && (
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="space-y-6">
+          {isGenerating && (
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-gray-900">Processing</h3>
                   <Button
@@ -517,20 +517,20 @@ export default function GeneratePostsPage() {
                 <div className="space-y-4">
                   {processingSteps.map((step) => (
                     <div key={step.id} className="flex items-center space-x-3">
-                      <div className="flex-shrink-0">
+                  <div className="flex-shrink-0">
                         {step.status === 'completed' ? (
                           <div className="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
                             <CheckCircle className="h-4 w-4 text-green-600" />
-                          </div>
+                    </div>
                         ) : step.status === 'processing' ? (
                           <div className="h-8 w-8 bg-primary/10 rounded-full flex items-center justify-center">
                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
-                          </div>
+                  </div>
                         ) : (
                           <div className="h-8 w-8 bg-gray-100 rounded-full flex items-center justify-center">
                             <div className="h-4 w-4 bg-gray-300 rounded-full"></div>
-                          </div>
-                        )}
+            </div>
+          )}
                       </div>
                       <div className="flex-1">
                         <p className={`text-sm font-medium ${
@@ -545,28 +545,28 @@ export default function GeneratePostsPage() {
                               className="bg-primary h-1.5 rounded-full transition-all duration-300"
                               style={{ width: `${step.progress}%` }}
                             ></div>
-                          </div>
+                        </div>
                         )}
-                      </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Tips Card */}
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6">
-              <div className="flex items-start space-x-3">
+          {/* Tips Card */}
+          <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6">
+            <div className="flex items-start space-x-3">
                 <Sparkles className="h-5 w-5 text-primary mt-0.5" />
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900 mb-2">Pro Tips</h3>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Use descriptive titles for better SEO</li>
-                    <li>• Include relevant keywords in descriptions</li>
-                    <li>• Schedule posts during peak hours (2-4 PM)</li>
-                    <li>• Use high-quality, vertical images</li>
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 mb-2">Pro Tips</h3>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Use descriptive titles for better SEO</li>
+                  <li>• Include relevant keywords in descriptions</li>
+                  <li>• Schedule posts during peak hours (2-4 PM)</li>
+                  <li>• Use high-quality, vertical images</li>
                     <li>• Test different styles to see what works</li>
-                  </ul>
+                </ul>
                 </div>
               </div>
             </div>
@@ -681,8 +681,8 @@ export default function GeneratePostsPage() {
                 </Button>
               </div>
             )}
-          </div>
         </div>
+      </div>
       )}
     </div>
   );

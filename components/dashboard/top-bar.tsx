@@ -7,10 +7,15 @@ import {
   Menu,
   User,
   LogOut,
-  Settings
+  Settings,
+  CheckCircle,
+  AlertCircle,
+  Zap,
+  Star,
+  X
 } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface TopBarProps {
   onMenuClick: () => void;
@@ -19,6 +24,64 @@ interface TopBarProps {
 export function TopBar({ onMenuClick }: TopBarProps) {
   const { user, logout } = useAuth();
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const notificationsRef = useRef<HTMLDivElement>(null);
+
+  // Close notifications when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (notificationsRef.current && !notificationsRef.current.contains(event.target as Node)) {
+        setShowNotifications(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Mock notification data
+  const notifications = [
+    {
+      id: 1,
+      type: "success",
+      title: "Posts generated successfully",
+      message: "5 new Pinterest posts created from your blog",
+      time: "2 minutes ago",
+      icon: CheckCircle,
+      unread: true
+    },
+    {
+      id: 2,
+      type: "warning",
+      title: "Low credit warning",
+      message: "You have 753 credits remaining",
+      time: "1 hour ago",
+      icon: AlertCircle,
+      unread: true
+    },
+    {
+      id: 3,
+      type: "info",
+      title: "Post performance spike",
+      message: "Your post got 1.2K views today",
+      time: "3 hours ago",
+      icon: Zap,
+      unread: false
+    },
+    {
+      id: 4,
+      type: "milestone",
+      title: "Achievement unlocked",
+      message: "Reached 10K total views!",
+      time: "1 day ago",
+      icon: Star,
+      unread: false
+    }
+  ];
+
+  const unreadCount = notifications.filter(n => n.unread).length;
 
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-4 lg:px-6">
@@ -49,13 +112,97 @@ export function TopBar({ onMenuClick }: TopBarProps) {
 
         {/* Right side */}
         <div className="flex items-center space-x-4">
-          {/* Notifications */}
-          <Button variant="ghost" size="sm" className="relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">
-              3
-            </span>
-          </Button>
+          {/* Notifications Dropdown */}
+          <div className="relative" ref={notificationsRef}>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="relative"
+              onClick={() => setShowNotifications(!showNotifications)}
+            >
+              <Bell className="h-5 w-5" />
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">
+                  {unreadCount}
+                </span>
+              )}
+            </Button>
+
+            {/* Notifications Dropdown */}
+            {showNotifications && (
+              <div className="absolute right-0 mt-2 w-80 rounded-xl border bg-white shadow-lg z-50">
+                {/* Header */}
+                <div className="p-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-semibold text-gray-900">Notifications</h3>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      onClick={() => setShowNotifications(false)}
+                      className="h-6 w-6 p-0"
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Notifications List */}
+                <div className="max-h-80 overflow-y-auto">
+                  {notifications.map((notification) => {
+                    const Icon = notification.icon;
+                    const iconColor = {
+                      success: "text-green-500",
+                      warning: "text-orange-500", 
+                      info: "text-blue-500",
+                      milestone: "text-purple-500"
+                    }[notification.type];
+
+                    return (
+                      <div 
+                        key={notification.id} 
+                        className={`p-4 border-b border-gray-50 hover:bg-gray-50 transition-colors cursor-pointer ${
+                          notification.unread ? 'bg-blue-50/50' : ''
+                        }`}
+                      >
+                        <div className="flex items-start space-x-3">
+                          <div className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center ${
+                            notification.unread ? 'bg-blue-100' : 'bg-gray-100'
+                          }`}>
+                            <Icon className={`h-4 w-4 ${iconColor}`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`text-sm font-medium ${
+                              notification.unread ? 'text-gray-900' : 'text-gray-700'
+                            }`}>
+                              {notification.title}
+                            </p>
+                            <p className="text-xs text-gray-500 mt-1">
+                              {notification.message}
+                            </p>
+                            <p className="text-xs text-gray-400 mt-1">
+                              {notification.time}
+                            </p>
+                          </div>
+                          {notification.unread && (
+                            <div className="flex-shrink-0">
+                              <div className="h-2 w-2 bg-primary rounded-full"></div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Footer */}
+                <div className="p-3 border-t border-gray-100">
+                  <Button variant="ghost" size="sm" className="w-full text-xs">
+                    View All Notifications
+                  </Button>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* User menu */}
           <div className="relative">
