@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect, useMemo } from "react";
 import { 
   Search, 
-  Filter, 
-  SortAsc, 
   Grid3X3, 
   List,
   Pin,
@@ -17,24 +15,16 @@ import {
   Trash2,
   MoreHorizontal,
   Download,
-  Upload,
   CheckSquare,
   Square,
-  Clock,
-  CheckCircle,
-  AlertCircle,
   ExternalLink,
-  Calendar as CalendarIcon,
   ChevronLeft,
   ChevronRight,
   X,
   Plus,
-  Settings,
-  Zap,
-  BarChart3,
-  Globe,
-  Image as ImageIcon
+  BarChart3
 } from "lucide-react";
+import { PostEditor } from "@/components/dashboard/post-editor";
 
 interface Post {
   id: number;
@@ -59,9 +49,9 @@ export default function MyPostsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("newest");
-  const [showFilters, setShowFilters] = useState(false);
+  // const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [editingPost, setEditingPost] = useState<number | null>(null);
+  const [editingPost, setEditingPost] = useState<Post | null>(null);
   const [showPreview, setShowPreview] = useState<number | null>(null);
   
   // Mock data with 50+ posts
@@ -235,7 +225,7 @@ export default function MyPostsPage() {
 
   // Filtering and sorting logic
   const filteredAndSortedPosts = useMemo(() => {
-    let filtered = posts.filter(post => {
+    const filtered = posts.filter(post => {
       const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                            post.description.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesStatus = statusFilter === "all" || post.status === statusFilter;
@@ -304,6 +294,14 @@ export default function MyPostsPage() {
     });
   };
 
+  // Handle post updates from editor
+  const handlePostUpdate = (updatedPost: Post) => {
+    // In a real app, this would update the database
+    console.log('Updated post:', updatedPost);
+    // For now, just close the editor
+    setEditingPost(null);
+  };
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -317,6 +315,7 @@ export default function MyPostsPage() {
       }
       if (e.key === 'Escape') {
         clearSelection();
+        setEditingPost(null);
       }
     };
 
@@ -535,14 +534,14 @@ export default function MyPostsPage() {
                     
                     <h3 
                       className="font-medium text-gray-900 mb-2 line-clamp-2 cursor-pointer hover:text-primary transition-colors"
-                      onClick={() => setEditingPost(post.id)}
+                      onClick={() => setEditingPost(post)}
                     >
                       {post.title}
                     </h3>
                     
                     <p 
                       className="text-sm text-gray-600 mb-3 line-clamp-2 cursor-pointer hover:text-gray-800 transition-colors"
-                      onClick={() => setEditingPost(post.id)}
+                      onClick={() => setEditingPost(post)}
                     >
                       {post.description}
                     </p>
@@ -573,7 +572,7 @@ export default function MyPostsPage() {
                           variant="outline" 
                           size="sm" 
                           className="h-7 w-7 p-0"
-                          onClick={() => setEditingPost(post.id)}
+                          onClick={() => setEditingPost(post)}
                         >
                           <Edit className="h-3 w-3" />
                         </Button>
@@ -697,7 +696,7 @@ export default function MyPostsPage() {
                     <td className="px-6 py-4 text-sm text-gray-500">{formatDate(post.date)}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-2">
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" onClick={() => setEditingPost(post)}>
                           <Edit className="h-3 w-3" />
                         </Button>
                         <Button variant="outline" size="sm">
@@ -768,7 +767,7 @@ export default function MyPostsPage() {
         </div>
       )}
 
-      {/* Preview Modal Placeholder */}
+      {/* Preview Modal */}
       {showPreview && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-auto">
@@ -795,42 +794,14 @@ export default function MyPostsPage() {
         </div>
       )}
 
-      {/* Edit Modal Placeholder */}
+      {/* Post Editor */}
       {editingPost && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-auto">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold">Edit Post</h2>
-                <Button variant="ghost" onClick={() => setEditingPost(null)}>
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
-                  <input 
-                    type="text" 
-                    defaultValue={currentPosts.find(p => p.id === editingPost)?.title}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
-                  <textarea 
-                    defaultValue={currentPosts.find(p => p.id === editingPost)?.description}
-                    rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Button onClick={() => setEditingPost(null)}>Save Changes</Button>
-                  <Button variant="outline" onClick={() => setEditingPost(null)}>Cancel</Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PostEditor
+          post={editingPost}
+          isOpen={true}
+          onClose={() => setEditingPost(null)}
+          onSave={handlePostUpdate}
+        />
       )}
     </div>
   );

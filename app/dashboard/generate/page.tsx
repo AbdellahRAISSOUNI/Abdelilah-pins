@@ -1,30 +1,23 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { 
   Link as LinkIcon, 
-  Settings, 
   Zap,
   Pin,
   Download,
   Eye,
-  Heart,
   Share2,
   ChevronDown,
   ChevronUp,
   CheckCircle,
   Clock,
-  AlertCircle,
   X,
-  Play,
-  Pause,
   RotateCcw,
   Sparkles,
   TrendingUp,
   FileText,
-  Image,
-  Globe,
   Sliders
 } from "lucide-react";
 
@@ -51,7 +44,7 @@ export default function GeneratePostsPage() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
+  // const [currentStep, setCurrentStep] = useState(0);
   const [progress, setProgress] = useState(0);
   const [estimatedTime, setEstimatedTime] = useState(0);
   const [generatedPosts, setGeneratedPosts] = useState<GeneratedPost[]>([]);
@@ -147,7 +140,7 @@ export default function GeneratePostsPage() {
   // Simulate processing
   const simulateProcessing = async () => {
     setIsGenerating(true);
-    setCurrentStep(0);
+    // setCurrentStep(0);
     setProgress(0);
     setEstimatedTime(120); // 2 minutes
 
@@ -170,7 +163,7 @@ export default function GeneratePostsPage() {
     setProcessingSteps(prev => prev.map(step => 
       step.id === 'analyze' ? { ...step, status: 'completed', progress: 100 } : step
     ));
-    setCurrentStep(1);
+    // setCurrentStep(1);
 
     // Step 2: Extract articles
     setProcessingSteps(prev => prev.map(step => 
@@ -187,7 +180,7 @@ export default function GeneratePostsPage() {
     setProcessingSteps(prev => prev.map(step => 
       step.id === 'extract' ? { ...step, status: 'completed', progress: 100 } : step
     ));
-    setCurrentStep(2);
+    // setCurrentStep(2);
 
     // Step 3: Generate content
     setProcessingSteps(prev => prev.map(step => 
@@ -204,7 +197,7 @@ export default function GeneratePostsPage() {
     setProcessingSteps(prev => prev.map(step => 
       step.id === 'generate' ? { ...step, status: 'completed', progress: 100 } : step
     ));
-    setCurrentStep(3);
+    // setCurrentStep(3);
 
     // Step 4: Create images
     setProcessingSteps(prev => prev.map(step => 
@@ -250,7 +243,7 @@ export default function GeneratePostsPage() {
     setIsGenerating(false);
     setShowResults(false);
     setGeneratedPosts([]);
-    setCurrentStep(0);
+    // setCurrentStep(0);
     setProgress(0);
     setEstimatedTime(0);
     setProcessingSteps(prev => prev.map(step => ({ ...step, status: 'pending', progress: 0 })));
@@ -522,7 +515,7 @@ export default function GeneratePostsPage() {
 
                 {/* Processing Steps */}
                 <div className="space-y-4">
-                  {processingSteps.map((step, index) => (
+                  {processingSteps.map((step) => (
                     <div key={step.id} className="flex items-center space-x-3">
                       <div className="flex-shrink-0">
                         {step.status === 'completed' ? (
