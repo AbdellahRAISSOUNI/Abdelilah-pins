@@ -10,24 +10,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PinGen - AI-Powered Pinterest Post Generator",
+  title: "PinSlayer - AI-Powered Pinterest Post Generator",
   description: "Generate stunning Pinterest posts with AI-powered design tools. Choose from hundreds of templates and boost your Pinterest engagement.",
   keywords: ["Pinterest", "AI", "design", "social media", "posts", "templates"],
-  authors: [{ name: "PinGen Team" }],
-  creator: "PinGen",
+  authors: [{ name: "PinSlayer Team" }],
+  creator: "PinSlayer",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pingen.com",
-    title: "PinGen - AI-Powered Pinterest Post Generator",
+    url: "https://pinslayer.com",
+    title: "PinSlayer - AI-Powered Pinterest Post Generator",
     description: "Generate stunning Pinterest posts with AI-powered design tools.",
-    siteName: "PinGen",
+    siteName: "PinSlayer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PinGen - AI-Powered Pinterest Post Generator",
+    title: "PinSlayer - AI-Powered Pinterest Post Generator",
     description: "Generate stunning Pinterest posts with AI-powered design tools.",
-    creator: "@pingen",
+    creator: "@pinslayer",
   },
 };
 

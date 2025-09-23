@@ -91,7 +91,7 @@ export function FeaturesSection() {
                   Ready to transform your Pinterest strategy?
                 </h3>
                 <p className="mt-6 text-lg text-white/90">
-                  Join thousands of creators who are already using PinGen to
+                  Join thousands of creators who are already using PinSlayer to
                   create stunning Pinterest posts that drive traffic and sales.
                 </p>
                 <div className="mt-8">

@@ -1,4 +1,4 @@
-# PinGenerator - Comprehensive Progress Summary
+# PinSlayer - Comprehensive Progress Summary
 
 This document provides a detailed overview of the current development progress and all completed features.
 

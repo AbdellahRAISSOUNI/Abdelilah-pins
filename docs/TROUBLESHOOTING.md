@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-Common issues and solutions for the PinGenerator application.
+Common issues and solutions for the PinSlayer application.
 
 ## 📋 Table of Contents
 
@@ -164,7 +164,7 @@ import { useAuth } from '@/hooks/use-auth';
 </AuthProvider>
 
 // Check localStorage for user data
-console.log(localStorage.getItem('pingen_user'));
+console.log(localStorage.getItem('user'));
 ```
 
 ### Session Not Persisting
@@ -175,7 +175,7 @@ console.log(localStorage.getItem('pingen_user'));
 ```typescript
 // Check localStorage implementation
 useEffect(() => {
-  const storedUser = localStorage.getItem("pingen_user");
+  const storedUser = localStorage.getItem("user");
   if (storedUser) {
     setUser(JSON.parse(storedUser));
   }

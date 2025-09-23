@@ -1,6 +1,6 @@
 # API Integration Guide
 
-This document provides detailed instructions for integrating real APIs into the PinGenerator application.
+This document provides detailed instructions for integrating real APIs into the PinSlayer application.
 
 ## 📋 Table of Contents
 
@@ -740,7 +740,7 @@ Create a `.env.local` file with the following variables:
 
 ```env
 # Database
-DATABASE_URL="postgresql://username:password@localhost:5432/pingenerator"
+DATABASE_URL="postgresql://username:password@localhost:5432/pinslayer"
 
 # JWT
 JWT_SECRET="your-super-secret-jwt-key"
@@ -771,4 +771,4 @@ REDIS_URL="redis://localhost:6379"
 
 ---
 
-This guide provides a comprehensive foundation for integrating real APIs into your PinGenerator application. Start with authentication, then move to post generation, and finally add Pinterest integration and analytics.
+This guide provides a comprehensive foundation for integrating real APIs into your PinSlayer application. Start with authentication, then move to post generation, and finally add Pinterest integration and analytics.

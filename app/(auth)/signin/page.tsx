@@ -50,7 +50,7 @@ export default function SignInPage() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
               <Pin className="h-6 w-6" />
             </div>
-            <span className="text-2xl font-bold text-gray-900">PinGenerator</span>
+            <span className="text-2xl font-bold text-gray-900">PinSlayer</span>
           </Link>
           <h2 className="text-3xl font-bold text-gray-900">
             Welcome back

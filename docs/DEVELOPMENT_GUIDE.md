@@ -1,6 +1,6 @@
 # Development Guide
 
-This guide provides comprehensive information for developers working on the PinGenerator project.
+This guide provides comprehensive information for developers working on the PinSlayer project.
 
 ## 📋 Table of Contents
 

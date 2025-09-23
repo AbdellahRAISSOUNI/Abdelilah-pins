@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { CTASection } from "@/components/landing/cta-section";
 
 export const metadata: Metadata = {
-  title: "About Us - PinGenerator",
-  description: "Learn about PinGenerator's mission to help content creators and businesses grow their Pinterest presence with AI-powered tools.",
+  title: "About Us - PinSlayer",
+  description: "Learn about PinSlayer's mission to help content creators and businesses grow their Pinterest presence with AI-powered tools.",
 };
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="mx-auto max-w-3xl text-center mb-20">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            About <span className="text-primary">PinGenerator</span>
+            About <span className="text-primary">PinSlayer</span>
           </h1>
           <p className="mt-6 text-xl leading-8 text-gray-600">
             We&apos;re on a mission to help content creators and businesses 
@@ -32,7 +32,7 @@ export default function AboutPage() {
               but creating engaging posts manually is time-consuming and often ineffective.
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              PinGenerator was born from the frustration of spending hours creating Pinterest 
+              PinSlayer was born from the frustration of spending hours creating Pinterest 
               posts that didn&apos;t perform. We believe every piece of great content deserves 
               to reach its audience, and we&apos;re here to make that happen.
             </p>
@@ -156,7 +156,7 @@ export default function AboutPage() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Join thousands of creators who are already using PinGenerator 
+            Join thousands of creators who are already using PinSlayer 
             to grow their Pinterest presence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

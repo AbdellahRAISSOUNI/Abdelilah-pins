@@ -1,11 +1,11 @@
 export const SITE_CONFIG = {
-  name: "PinGen",
+  name: "PinSlayer",
   description: "Generate stunning Pinterest posts with AI-powered design tools",
-  url: "https://pingen.com",
+  url: "https://pinslayer.com",
   ogImage: "/og-image.jpg",
   links: {
-    twitter: "https://twitter.com/pingen",
-    github: "https://github.com/pingen",
+    twitter: "https://twitter.com/pinslayer",
+    github: "https://github.com/pinslayer",
   },
 } as const;
 

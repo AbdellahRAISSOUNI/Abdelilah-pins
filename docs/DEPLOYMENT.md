@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying the PinGenerator application to various platforms.
+This guide covers deploying the PinSlayer application to various platforms.
 
 ## 📋 Table of Contents
 
@@ -181,7 +181,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgresql://postgres:password@db:5432/pingenerator
+      - DATABASE_URL=postgresql://postgres:password@db:5432/pinslayer
       - JWT_SECRET=your-jwt-secret
       - OPENAI_API_KEY=your-openai-key
       - PINTEREST_CLIENT_ID=your-pinterest-client-id
@@ -193,7 +193,7 @@ services:
   db:
     image: postgres:15
     environment:
-      - POSTGRES_DB=pingenerator
+      - POSTGRES_DB=pinslayer
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     volumes:
@@ -214,7 +214,7 @@ volumes:
 
 ```bash
 # Build Docker image
-docker build -t pingenerator .
+docker build -t pinslayer .
 
 # Run with Docker Compose
 docker-compose up -d
@@ -227,15 +227,15 @@ docker-compose logs -f app
 
 ```bash
 # Build for production
-docker build -t pingenerator:latest .
+docker build -t pinslayer:latest .
 
 # Run production container
 docker run -d \
-  --name pingenerator \
+  --name pinslayer \
   -p 3000:3000 \
   -e DATABASE_URL=your-database-url \
   -e JWT_SECRET=your-jwt-secret \
-  pingenerator:latest
+  pinslayer:latest
 ```
 
 ## ☁️ AWS Deployment
@@ -323,8 +323,8 @@ sudo apt install nginx -y
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/pingenerator.git
-cd pingenerator
+git clone https://github.com/your-username/pinslayer.git
+cd pinslayer
 
 # Install dependencies
 npm install
@@ -333,7 +333,7 @@ npm install
 npm run build
 
 # Start with PM2
-pm2 start npm --name "pingenerator" -- start
+pm2 start npm --name "pinslayer" -- start
 pm2 startup
 pm2 save
 ```
@@ -341,7 +341,7 @@ pm2 save
 #### Configure Nginx
 
 ```nginx
-# /etc/nginx/sites-available/pingenerator
+# /etc/nginx/sites-available/pinslayer
 server {
     listen 80;
     server_name your-domain.com;
@@ -362,7 +362,7 @@ server {
 
 ```bash
 # Enable site
-sudo ln -s /etc/nginx/sites-available/pingenerator /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/pinslayer /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
@@ -372,7 +372,7 @@ sudo systemctl restart nginx
 ```bash
 # Create RDS PostgreSQL instance
 aws rds create-db-instance \
-    --db-instance-identifier pingenerator-db \
+    --db-instance-identifier pinslayer-db \
     --db-instance-class db.t3.micro \
     --engine postgres \
     --master-username postgres \
@@ -396,11 +396,11 @@ brew services start postgresql  # macOS
 sudo systemctl start postgresql  # Ubuntu
 
 # Create database
-createdb pingenerator
+createdb pinslayer
 
 # Create user
-psql -c "CREATE USER pingenerator WITH PASSWORD 'password';"
-psql -c "GRANT ALL PRIVILEGES ON DATABASE pingenerator TO pingenerator;"
+psql -c "CREATE USER pinslayer WITH PASSWORD 'password';"
+psql -c "GRANT ALL PRIVILEGES ON DATABASE pinslayer TO pinslayer;"
 ```
 
 #### Production Database
@@ -420,9 +420,9 @@ sudo apt install postgresql postgresql-contrib
 
 # Configure PostgreSQL
 sudo -u postgres psql
-CREATE DATABASE pingenerator;
-CREATE USER pingenerator WITH PASSWORD 'secure_password';
-GRANT ALL PRIVILEGES ON DATABASE pingenerator TO pingenerator;
+CREATE DATABASE pinslayer;
+CREATE USER pinslayer WITH PASSWORD 'secure_password';
+GRANT ALL PRIVILEGES ON DATABASE pinslayer TO pinslayer;
 \q
 ```
 
@@ -443,7 +443,7 @@ npx prisma db seed
 
 ```env
 # Local development
-DATABASE_URL="postgresql://pingenerator:password@localhost:5432/pingenerator"
+DATABASE_URL="postgresql://pinslayer:password@localhost:5432/pinslayer"
 
 # Production (example)
 DATABASE_URL="postgresql://username:password@host:5432/database?sslmode=require"

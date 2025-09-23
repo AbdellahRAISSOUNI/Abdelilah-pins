@@ -12,7 +12,7 @@ export function CTASection() {
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Join thousands of creators and businesses who are already using
-            PinGen to boost their Pinterest engagement and drive more traffic to
+            PinSlayer to boost their Pinterest engagement and drive more traffic to
             their content.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

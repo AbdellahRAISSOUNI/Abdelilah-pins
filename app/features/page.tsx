@@ -3,8 +3,8 @@ import { FeaturesSection } from "@/components/landing/features-section";
 import { CTASection } from "@/components/landing/cta-section";
 
 export const metadata: Metadata = {
-  title: "Features - PinGenerator",
-  description: "Discover all the powerful features that make PinGenerator the best Pinterest post generator for content creators and businesses.",
+  title: "Features - PinSlayer",
+  description: "Discover all the powerful features that make PinSlayer the best Pinterest post generator for content creators and businesses.",
 };
 
 export default function FeaturesPage() {

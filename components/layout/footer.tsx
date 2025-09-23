@@ -12,7 +12,7 @@ export function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
                 <Pin className="h-5 w-5" />
               </div>
-              <span className="text-xl font-bold text-gray-900">PinGenerator</span>
+              <span className="text-xl font-bold text-gray-900">PinSlayer</span>
             </Link>
             <p className="text-gray-600 max-w-md">
               Transform your blog content into viral Pinterest posts with our AI-powered platform. 
@@ -20,31 +20,31 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://twitter.com/pingenerator"
+                href="https://twitter.com/pinslayer"
                 className="text-gray-400 transition-colors hover:text-primary"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link
-                href="https://github.com/pingenerator"
+                href="https://github.com/pinslayer"
                 className="text-gray-400 transition-colors hover:text-primary"
               >
                 <Github className="h-5 w-5" />
               </Link>
               <Link
-                href="https://linkedin.com/company/pingenerator"
+                href="https://linkedin.com/company/pinslayer"
                 className="text-gray-400 transition-colors hover:text-primary"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="https://youtube.com/@pingenerator"
+                href="https://youtube.com/@pinslayer"
                 className="text-gray-400 transition-colors hover:text-primary"
               >
                 <Youtube className="h-5 w-5" />
               </Link>
               <Link
-                href="mailto:hello@pingenerator.com"
+                href="mailto:hello@pinslayer.com"
                 className="text-gray-400 transition-colors hover:text-primary"
               >
                 <Mail className="h-5 w-5" />
@@ -220,7 +220,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <p className="text-sm text-gray-600">
-              © 2024 PinGenerator. All rights reserved.
+              © 2024 PinSlayer. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link

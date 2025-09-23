@@ -1,4 +1,4 @@
-# PinGenerator - AI-Powered Pinterest Post Generator
+# PinSlayer - AI-Powered Pinterest Post Generator
 
 A modern Next.js 14 SaaS application for generating Pinterest posts from blog content using AI-powered tools.
 
@@ -16,7 +16,7 @@ A modern Next.js 14 SaaS application for generating Pinterest posts from blog co
 
 ## 🎯 Project Overview
 
-PinGenerator is a comprehensive SaaS platform that transforms blog content into viral Pinterest posts. The application features a modern landing page, complete authentication system, and a full-featured dashboard for content management.
+PinSlayer is a comprehensive SaaS platform that transforms blog content into viral Pinterest posts. The application features a modern landing page, complete authentication system, and a full-featured dashboard for content management.
 
 ### Key Features
 
@@ -515,8 +515,8 @@ export function Button({ className, variant, ...props }) {
 
 2. **Build and Run**
    ```bash
-   docker build -t pingenerator .
-   docker run -p 3000:3000 pingenerator
+   docker build -t pinslayer .
+   docker run -p 3000:3000 pinslayer
    ```
 
 ## 📊 Performance Optimization
@@ -613,4 +613,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Last Updated**: December 2024  
 **Version**: 1.0.0  
-**Maintainer**: PinGenerator Team
+**Maintainer**: PinSlayer Team

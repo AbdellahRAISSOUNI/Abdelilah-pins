@@ -26,7 +26,7 @@ export function Navigation() {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
             <Pin className="h-5 w-5" />
           </div>
-          <span className="text-xl font-bold text-gray-900">PinGenerator</span>
+          <span className="text-xl font-bold text-gray-900">PinSlayer</span>
         </Link>
 
         {/* Desktop Navigation */}

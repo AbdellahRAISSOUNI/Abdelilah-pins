@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with PinGenerator in minutes!
+Get up and running with PinSlayer in minutes!
 
 ## 🚀 Quick Setup
 
